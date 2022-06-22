@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import {Container} from 'reactstrap'
+import "bootstrap/dist/css/bootstrap.min.css"
+
+// import Component
+
+import Todo from './component/Todo';
+import Todoform from './component/Todoform';
+
+// redux
+import {Provider} from 'react-redux'
+import store from './Store';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store} >
+      <Container fluid>
+        <Todo />
+        <Todoform />
+      </Container>
+    </Provider>
   );
 }
 
